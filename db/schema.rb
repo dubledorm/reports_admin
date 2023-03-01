@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_105317) do
+ActiveRecord::Schema.define(version: 2023_03_01_130323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,4 +41,37 @@ ActiveRecord::Schema.define(version: 2023_03_01_105317) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "report_executions", force: :cascade do |t|
+    t.bigint "report_id", null: false
+    t.integer "report_status"
+    t.datetime "report_run_date"
+    t.datetime "report_end_date"
+    t.text "report_error"
+    t.integer "send_status"
+    t.datetime "send_run_date"
+    t.datetime "send_end_date"
+    t.integer "send_count"
+    t.text "send_error"
+    t.index ["report_end_date"], name: "index_report_executions_on_report_end_date"
+    t.index ["report_id"], name: "index_report_executions_on_report_id"
+    t.index ["report_run_date"], name: "index_report_executions_on_report_run_date"
+    t.index ["report_status"], name: "index_report_executions_on_report_status"
+    t.index ["send_count"], name: "index_report_executions_on_send_count"
+    t.index ["send_end_date"], name: "index_report_executions_on_send_end_date"
+    t.index ["send_run_date"], name: "index_report_executions_on_send_run_date"
+    t.index ["send_status"], name: "index_report_executions_on_send_status"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "enabled"
+    t.string "alertinterval"
+    t.string "reportstring"
+    t.string "transportstring"
+    t.index ["enabled"], name: "index_reports_on_enabled"
+    t.index ["name"], name: "index_reports_on_name", unique: true
+  end
+
+  add_foreign_key "report_executions", "reports"
 end
