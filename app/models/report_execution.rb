@@ -7,6 +7,7 @@ class ReportExecution < ApplicationRecord
   SEND_STATUS_VALUES = { 0 => 'waiting', 1 => 'running', 2 => 'finished', -1 => 'error' }.freeze
 
   belongs_to :report
+  has_many :report_files, dependent: :destroy
 
   validates :report_status, presence: true, inclusion: { in: REPORT_STATUS_VALUES }
   validates :send_status, presence: true, inclusion: { in: SEND_STATUS_VALUES }

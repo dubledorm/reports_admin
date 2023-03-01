@@ -10,5 +10,6 @@ RSpec.describe ReportExecution, type: :model do
     it { expect(report_execution).to be_valid }
 
     it { should belong_to(:report) }
+    it { should have_many(:report_files) }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_130323) do
+ActiveRecord::Schema.define(version: 2023_03_01_142006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2023_03_01_130323) do
     t.index ["send_status"], name: "index_report_executions_on_send_status"
   end
 
+  create_table "report_files", force: :cascade do |t|
+    t.bigint "report_execution_id", null: false
+    t.string "file_id"
+    t.string "file_name"
+    t.string "file_path"
+    t.index ["file_id"], name: "index_report_files_on_file_id"
+    t.index ["report_execution_id"], name: "index_report_files_on_report_execution_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -74,4 +83,5 @@ ActiveRecord::Schema.define(version: 2023_03_01_130323) do
   end
 
   add_foreign_key "report_executions", "reports"
+  add_foreign_key "report_files", "report_executions"
 end
