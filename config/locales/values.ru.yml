@@ -1,0 +1,14 @@
+ru:
+  report_execution:
+    report_status:
+      running: Выполняется
+      finished: Успешно
+      error: Ошибка
+      undefined: Неопределён
+    send_status:
+      waiting: Ожидат отправки
+      running: Отправляется
+      finished: Отправлен
+      error: Ошибка
+      finished_with_error: Завершён с ошибкой
+      undefined: Неопределён

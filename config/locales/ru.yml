@@ -47,7 +47,7 @@ ru:
         send_status: Статус отправки
         send_run_date: Начало отправки
         send_end_date: Конец отправки
-        send_count: Кол-во повторов отправки
+        send_attempts: Кол-во повторов отправки
         send_error: Ошибка отправки
       report_file:
         id: Id

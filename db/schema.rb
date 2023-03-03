@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_01_142006) do
+ActiveRecord::Schema.define(version: 2023_03_03_152301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(version: 2023_03_01_142006) do
     t.integer "send_status"
     t.datetime "send_run_date"
     t.datetime "send_end_date"
-    t.integer "send_count"
+    t.integer "send_attempts"
     t.text "send_error"
     t.index ["report_end_date"], name: "index_report_executions_on_report_end_date"
     t.index ["report_id"], name: "index_report_executions_on_report_id"
     t.index ["report_run_date"], name: "index_report_executions_on_report_run_date"
     t.index ["report_status"], name: "index_report_executions_on_report_status"
-    t.index ["send_count"], name: "index_report_executions_on_send_count"
+    t.index ["send_attempts"], name: "index_report_executions_on_send_attempts"
     t.index ["send_end_date"], name: "index_report_executions_on_send_end_date"
     t.index ["send_run_date"], name: "index_report_executions_on_send_run_date"
     t.index ["send_status"], name: "index_report_executions_on_send_status"

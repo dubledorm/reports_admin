@@ -5,6 +5,6 @@ FactoryGirl.define do
     report_run_date Time.now - 10.minutes
     report_end_date Time.now - 5.minutes
     send_status 0
-    send_count 0
+    send_attempts 0
   end
 end
