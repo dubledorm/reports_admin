@@ -1,7 +1,9 @@
 ActiveAdmin.register ReportExecution do
 
-  permit_params :report_id, :report_status, :report_run_date, :report_end_date, :report_error, :send_status,
-                :send_run_date, :send_end_date, :send_error, :send_attempts
+  # permit_params :report_id, :report_status, :report_run_date, :report_end_date, :report_error, :send_status,
+  #               :send_run_date, :send_end_date, :send_error, :send_attempts
+
+  permit_params :send_status
 
   actions :index, :show
   menu parent: I18n.t('main_menu.views')

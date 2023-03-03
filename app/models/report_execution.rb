@@ -12,4 +12,6 @@ class ReportExecution < ApplicationRecord
   validates :report_status, presence: true, inclusion: { in: REPORT_STATUS_VALUES.keys }
   validates :send_status, presence: true, inclusion: { in: SEND_STATUS_VALUES.keys }
   validates :send_attempts, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  scope :failure_report, -> { where(report_status: -1).or(ReportExecution.where(send_status: -2)).joins(:report) }
 end
