@@ -1,0 +1,78 @@
+ru:
+  activerecord:
+    models:
+      admin_user:
+        one: Пользователь
+        other: Пользователи
+      report:
+        one: Отчёт
+        two: Отчёты
+        other: Отчёты
+      report_execution:
+        one: Лог выполнения
+        other: Логи выполнения
+      report_file:
+        one: Файл
+        other: Файлы
+    attributes:
+      admin_user:
+        id: Id
+        email: EMail
+        encrypted_password: Шифрованный пароль
+        reset_password_token: Токен для сброса пароля
+        reset_password_sent_at: Время отправки токена для сброса пароля
+        remember_created_at: Время когда пользователь запомнен
+        created_at: Создано
+        updated_at: Изменено
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        current_sign_in_at: Время последнего входа
+        sign_in_count: Кол-во входов
+      report:
+        id: Id
+        name: Название
+        description: Описание
+        enabled: Активный
+        alert_interval: Разрешённое время молчания (мин)
+        report_string: Данные для формирования отчёта
+        transport_string: Данные для отправщика
+      report_execution:
+        id: Id
+        report_id: Отчёт
+        report: Отчёт
+        report_status: Статус формирования
+        report_run_date: Начало формирования
+        report_end_date: Конец формирования
+        report_error: Ошибка формирования
+        send_status: Статус отправки
+        send_run_date: Начало отправки
+        send_end_date: Конец отправки
+        send_count: Кол-во повторов отправки
+        send_error: Ошибка отправки
+      report_file:
+        id: Id
+        report_execution_id: Лог выполнеия
+        report_execution: Лог выполнеия
+        file_id: Id файла в хранилище
+        file_name: Имя файла
+        file_path: Маршрут к файлу
+
+    errors:
+      aliases:
+        _field_errors_alias: &fielderrors
+          blank: Должно быть заполнено
+          required: Должно быть заполнено
+          taken: Значение уже используется
+          greater_than: Должно быть больше %{count}
+          not_an_integer: Должно быть целым числом
+          less_than_or_equal_to: Превышает верхнее разрешённое значение
+          inclusion: Должно содержать значение из предопределённого списка
+          greater_than_or_equal_to: Значение должно быть больше или равно %{count}
+          not_a_number: Значение должно быть числом
+      models:
+        report:
+          attributes:
+            name:
+              <<: *fielderrors
+            alert_interval:
+              <<: *fielderrors

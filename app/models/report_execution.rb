@@ -9,7 +9,7 @@ class ReportExecution < ApplicationRecord
   belongs_to :report
   has_many :report_files, dependent: :destroy
 
-  validates :report_status, presence: true, inclusion: { in: REPORT_STATUS_VALUES }
-  validates :send_status, presence: true, inclusion: { in: SEND_STATUS_VALUES }
-  validates :send_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :report_status, presence: true, inclusion: { in: REPORT_STATUS_VALUES.keys }
+  validates :send_status, presence: true, inclusion: { in: SEND_STATUS_VALUES.keys }
+  #validates :send_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end

@@ -4,9 +4,9 @@ class CreateReport < ActiveRecord::Migration[6.0]
       t.string :name
       t.text :description
       t.boolean :enabled
-      t.string :alertinterval
-      t.string :reportstring
-      t.string :transportstring
+      t.string :alert_interval
+      t.string :report_string
+      t.string :transport_string
     end
 
     add_index :reports, :enabled

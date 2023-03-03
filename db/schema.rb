@@ -75,9 +75,9 @@ ActiveRecord::Schema.define(version: 2023_03_01_142006) do
     t.string "name"
     t.text "description"
     t.boolean "enabled"
-    t.string "alertinterval"
-    t.string "reportstring"
-    t.string "transportstring"
+    t.string "alert_interval"
+    t.string "report_string"
+    t.string "transport_string"
     t.index ["enabled"], name: "index_reports_on_enabled"
     t.index ["name"], name: "index_reports_on_name", unique: true
   end

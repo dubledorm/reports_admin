@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ReportExecution, type: :model do
   describe 'factory' do
-    let!(:report_execution) {FactoryGirl.create :report_execution }
+    let!(:report_execution) { FactoryGirl.create :report_execution }
 
     # Factories
     it { expect(report_execution).to be_valid }
