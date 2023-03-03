@@ -52,7 +52,7 @@ ru:
       report_file:
         id: Id
         report_execution_id: Лог выполнеия
-        report_execution: Лог выполнеия
+        report_execution: Лог выполнения
         file_id: Id файла в хранилище
         file_name: Имя файла
         file_path: Маршрут к файлу
