@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_03_152301) do
+ActiveRecord::Schema.define(version: 2023_03_05_144616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,9 +75,9 @@ ActiveRecord::Schema.define(version: 2023_03_03_152301) do
     t.string "name"
     t.text "description"
     t.boolean "enabled"
-    t.string "alert_interval"
     t.string "report_string"
     t.string "transport_string"
+    t.integer "alert_interval_min"
     t.index ["enabled"], name: "index_reports_on_enabled"
     t.index ["name"], name: "index_reports_on_name", unique: true
   end

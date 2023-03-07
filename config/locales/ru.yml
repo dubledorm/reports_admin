@@ -14,6 +14,9 @@ ru:
       report_file:
         one: Файл
         other: Файлы
+      failure_report:
+        one: Проблемный отчёт
+        other: Проблемы выполнения
     attributes:
       admin_user:
         id: Id
@@ -33,10 +36,23 @@ ru:
         name: Название
         description: Описание
         enabled: Активный
-        alert_interval: Разрешённое время молчания (мин)
+        alert_interval_min: Разрешённое время молчания (мин)
         report_string: Данные для формирования отчёта
         transport_string: Данные для отправщика
       report_execution:
+        id: Id
+        report_id: Отчёт
+        report: Отчёт
+        report_status: Статус формирования
+        report_run_date: Начало формирования
+        report_end_date: Конец формирования
+        report_error: Ошибка формирования
+        send_status: Статус отправки
+        send_run_date: Начало отправки
+        send_end_date: Конец отправки
+        send_attempts: Кол-во повторов отправки
+        send_error: Ошибка отправки
+      report_execution_decorator:
         id: Id
         report_id: Отчёт
         report: Отчёт
@@ -74,5 +90,5 @@ ru:
           attributes:
             name:
               <<: *fielderrors
-            alert_interval:
+            alert_interval_min:
               <<: *fielderrors

@@ -3,6 +3,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "name#{n}" }
     sequence(:description) { |n| "description#{n}" }
 
-    alert_interval 10
+    alert_interval_min 10
   end
 end
