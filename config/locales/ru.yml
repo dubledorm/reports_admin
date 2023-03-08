@@ -31,6 +31,8 @@ ru:
         password_confirmation: Подтверждение пароля
         current_sign_in_at: Время последнего входа
         sign_in_count: Кол-во входов
+        users_admin: Пользователи админ.
+        reports_admin: Отчёты админ.
       report:
         id: Id
         name: Название
@@ -92,3 +94,12 @@ ru:
               <<: *fielderrors
             alert_interval_min:
               <<: *fielderrors
+        admin_user:
+          attributes:
+            password_confirmation:
+              <<: *fielderrors
+              confirmation: Необходимо повторить ввод пароля
+            password:
+              <<: *fielderrors
+              too_short: Пароль слишком короткий
+

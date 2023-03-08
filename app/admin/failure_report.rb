@@ -2,6 +2,7 @@ ActiveAdmin.register Report, as: "FailureReport" do
   actions :index, :show
   decorate_with ReportDecorator
   menu priority: 1
+  filter :name
 
   controller do
     def scoped_collection
@@ -30,11 +31,15 @@ ActiveAdmin.register Report, as: "FailureReport" do
     panel ReportExecution.model_name.human do
       table_for failure_report.failure_attempts do
         column :id
-        column :report_status
+        column :report_status do |attempt|
+          attempt.decorate.report_status
+        end
         column :report_run_date
         column :report_end_date
         column :report_error
-        column :send_status
+        column :send_status do |attempt|
+          attempt.decorate.send_status
+        end
         column :send_run_date
         column :send_end_date
         column :send_attempts
