@@ -15,4 +15,8 @@ class ReportExecutionDecorator < Draper::Decorator
     I18n.t("report_execution.send_status.#{ReportExecution::SEND_STATUS_VALUES[object.send_status] ||
       DEFAULT_STATUS_VALUE}")
   end
+
+  def to_s
+    object.id.to_s
+  end
 end

@@ -1,8 +1,4 @@
 ActiveAdmin.register ReportExecution do
-
-  # permit_params :report_id, :report_status, :report_run_date, :report_end_date, :report_error, :send_status,
-  #               :send_run_date, :send_end_date, :send_error, :send_attempts
-
   actions :index, :show
   menu parent: I18n.t('main_menu.views')
   decorate_with ReportExecutionDecorator
@@ -30,11 +26,8 @@ ActiveAdmin.register ReportExecution do
     column :report
     column :report_status
     column :report_run_date
-    # column :report_end_date
     column :report_error
     column :send_status
-    # column :send_run_date
-    # column :send_end_date
     column :send_attempts
     column :send_error
     actions
@@ -43,6 +36,7 @@ ActiveAdmin.register ReportExecution do
 
   show do
     attributes_table do
+      row :id
       row :report_id
       row :report_status
       row :report_run_date
@@ -62,5 +56,10 @@ ActiveAdmin.register ReportExecution do
         column :file_path
       end
     end
+  end
+
+  member_action :stop_send, method: :post do
+    resource.update!(send_status: ReportExecution::SS_FINISHED_WITH_ERROR)
+    redirect_to admin_failure_report_path(id: resource.report_id), notice: I18n.t('send_stoped_success')
   end
 end

@@ -6,7 +6,7 @@ ru:
       error: Ошибка
       undefined: Неопределён
     send_status:
-      waiting: Ожидат отправки
+      waiting: Ожидает отправки
       running: Отправляется
       finished: Отправлен
       error: Ошибка

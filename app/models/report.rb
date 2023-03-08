@@ -11,10 +11,10 @@ class Report < ApplicationRecord
 
   scope :active_reports, -> { where(enabled: true) }
   scope :failure_reports, lambda {
-    Report.joins('LEFT OUTER JOIN report_executions AS re ON re.report_id = reports.id ' \
-                   'AND (re.report_status IN(-1) OR (re.send_status IN(-1)))')
+    Report.distinct.joins('LEFT OUTER JOIN report_executions AS re ON re.report_id = reports.id ' \
+"AND (re.report_status = #{ReportExecution::RS_ERROR}) OR (re.send_status = #{ReportExecution::SS_ERROR})")
           .joins('LEFT OUTER JOIN report_executions AS last_re ON last_re.report_id = reports.id' \
-' AND (last_re.report_status = 2 OR last_re.send_status = 2)' \
+" AND (last_re.report_status = #{ReportExecution::RS_FINISHED} OR last_re.send_status = #{ReportExecution::SS_FINISHED})" \
 ' AND (last_re.report_run_date + make_interval(mins => reports.alert_interval_min) > current_timestamp)')
           .where('last_re.id is NULL OR re.id is not NULL')
   }

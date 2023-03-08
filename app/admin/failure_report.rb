@@ -44,6 +44,12 @@ ActiveAdmin.register Report, as: "FailureReport" do
         column :send_end_date
         column :send_attempts
         column :send_error
+        column do |attempt|
+          if attempt.send_status == ReportExecution::SS_ERROR
+            link_to I18n.t('stop_send'), stop_send_admin_report_execution_path(id: attempt.id),
+                    method: :post, data: { confirm: I18n.t('strop_send_message') }
+          end
+        end
       end
     end
   end
