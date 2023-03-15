@@ -13,7 +13,7 @@ module ReportsAdmin
 
     config.i18n.default_locale = :ru
     I18n.config.enforce_available_locales = false
-
+    config.logger = Logger.new($stdout)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
